@@ -1,0 +1,38 @@
+.header {
+  background-color: var(--blue);
+  padding: 10px 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.search {
+  position: relative;
+  width: 30%;
+}
+
+.searchIcon {
+  width: 17px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+
+.searchIcon svg path {
+  fill: #0101fa;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: none;
+}
