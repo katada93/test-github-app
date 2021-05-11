@@ -1,15 +1,41 @@
 import React from 'react';
 import styles from './Profile.module.css';
+import followersIcon from '../../images/users.svg';
+import followingIcon from '../../images/user.svg';
 
-const Profile = ({ name, avatar, login, followers, following }) => {
+const formatNumber = (num) => {
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  }
+  return num;
+};
+
+const Profile = ({ name, avatar, login, followers, following, url }) => {
   return (
-    <div className='profile'>
-      <img src={avatar} alt='Profile image' className='profileImg' />
-      <h3 className='name'>{name}</h3>
-      <a href=''>{login}</a>
-      <div className='followers'>
-        <span>{followers} followers</span>
-        <span>{following} following</span>
+    <div className={styles.profile}>
+      <img src={avatar} alt='Profile' className={styles.profileImg} />
+      <h3 className={styles.name}>{name}</h3>
+      <a
+        href={url}
+        className={styles.login}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        {login}
+      </a>
+      <div className={styles.followersWrapper}>
+        <div className={styles.followers}>
+          <img
+            className={styles.followersIcon}
+            src={followersIcon}
+            alt='Icon'
+          />
+          <span>{formatNumber(followers)} followers</span>
+        </div>
+        <div className={styles.following}>
+          <img src={followingIcon} alt='' />
+          <span>{following} following</span>
+        </div>
       </div>
     </div>
   );

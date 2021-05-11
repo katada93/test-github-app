@@ -1,0 +1,17 @@
+.error {
+  max-width: 220px;
+  margin: 200px auto;
+}
+
+.errorImg {
+  width: 80px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.error p {
+  margin: 0;
+  color: var(--secondary);
+  text-align: center;
+  font-size: 24px;
+}

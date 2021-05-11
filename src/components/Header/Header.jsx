@@ -17,6 +17,7 @@ const Header = () => {
   const fetchUserData = (event) => {
     if (event.key === 'Enter') {
       dispatch(setLoading(true));
+      dispatch(setError(false));
       axios
         .get(`https://api.github.com/users/${value}`)
         .then(({ data }) => {
@@ -24,8 +25,9 @@ const Header = () => {
           dispatch(setUserData(data));
         })
         .catch((e) => {
+          console.log(e);
           dispatch(setLoading(false));
-          dispatch(setError());
+          dispatch(setError(true));
         });
     }
   };
@@ -35,7 +37,9 @@ const Header = () => {
       <div className='container'>
         <div className={styles.inner}>
           <div className={styles.logo}>
-            <img src={logo} alt='Logo' />
+            <a href='/'>
+              <img src={logo} alt='Logo' />
+            </a>
           </div>
           <div className={styles.search}>
             <img

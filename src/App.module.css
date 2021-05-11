@@ -1,17 +1,4 @@
-.start {
-  max-width: 220px;
-  margin: 200px auto;
-}
-
-.startImg {
-  width: 80px;
-  display: block;
-  margin: 0 auto 20px;
-}
-
-.start p {
-  margin: 0;
-  color: var(--secondary);
-  text-align: center;
-  font-size: 24px;
+.wrapper {
+  display: flex;
+  padding-top: 30px;
 }

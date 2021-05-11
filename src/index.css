@@ -5,7 +5,7 @@
 }
 
 :root {
-  --blue: #0064eb;
+  --primary: #0064eb;
   --secondary: #808080;
 }
 
@@ -16,6 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f9f9f9;
 }
 
 img {

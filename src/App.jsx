@@ -1,30 +1,39 @@
 import { useSelector } from 'react-redux';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
+import StartPage from './components/StartPage/StartPage';
 import Loader from './components/Loader/Loader';
 import Profile from './components/Profile/Profile';
-import searchIcon from './images/search.svg';
+import Repos from './components/Repos/Repos';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
-  const { user } = useSelector(({ user }) => user);
+  const { user, loading, error } = useSelector(({ user }) => user);
 
   return (
     <div className='App'>
       <Header />
-      {user ? (
-        <Profile
-          name={user.name}
-          avatar={user.avatar_url}
-          login={user.login}
-          followers={user.followers}
-          following={user.following}
-        />
-      ) : (
-        <div className={styles.start}>
-          <img className={styles.startImg} src={searchIcon} alt='Search Icon' />
-          <p className='startText'>Start with searching a GinHub user</p>
-        </div>
-      )}
+      <div className='container'>
+        {loading ? (
+          <Loader />
+        ) : (
+          user && (
+            <div className={styles.wrapper}>
+              <Profile
+                name={user.name}
+                avatar={user.avatar_url}
+                login={user.login}
+                followers={user.followers}
+                following={user.following}
+                url={user.html_url}
+              />
+              <Repos />
+            </div>
+          )
+        )}
+        {!(user || loading || error) && <StartPage />}
+        {error && <ErrorPage />}
+      </div>
     </div>
   );
 }
