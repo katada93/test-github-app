@@ -13,7 +13,8 @@ export const userSlice = createSlice({
   reducers: {
     setUserData: (state, action) => {
       state.user = action.payload;
-      state.reposCount = Math.floor(action.payload.public_repos / 4);
+      state.reposCount = Math.ceil(action.payload.public_repos / 4);
+      state.activePage = 1;
     },
     setLoading: (state, action) => {
       state.loading = action.payload;

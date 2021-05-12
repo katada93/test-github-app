@@ -33,7 +33,7 @@ const Profile = ({ name, avatar, login, followers, following, url }) => {
           <span>{formatNumber(followers)} followers</span>
         </div>
         <div className={styles.following}>
-          <img src={followingIcon} alt='' />
+          <img className={styles.followingIcon} src={followingIcon} alt='' />
           <span>{following} following</span>
         </div>
       </div>
