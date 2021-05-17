@@ -1,17 +1,18 @@
 .start {
-  max-width: 220px;
-  margin: 200px auto;
+  max-width: 200px;
+  margin: 290px auto;
 }
 
 .startImg {
   width: 80px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 45px;
 }
 
 .start p {
   margin: 0;
   color: var(--secondary);
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
+  line-height: 140%;
 }

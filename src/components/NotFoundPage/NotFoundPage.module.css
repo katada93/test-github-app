@@ -1,12 +1,12 @@
 .error {
-  max-width: 220px;
-  margin: 200px auto;
+  max-width: 160px;
+  margin: 290px auto;
 }
 
 .errorImg {
   width: 80px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
 }
 
 .error p {

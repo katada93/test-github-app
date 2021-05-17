@@ -3,10 +3,11 @@
 }
 
 .title {
-  font-size: 36px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
   margin: 0;
   margin-bottom: 25px;
-  font-weight: 500;
 }
 
 .list {
@@ -19,19 +20,20 @@
   margin-bottom: 20px;
   padding: 10px 30px;
   background-color: #fff;
-  box-shadow: 1px 1px 5px 0 rgb(0 0 0 / 5%);
+  /* box-shadow: 1px 1px 5px 0 rgb(0 0 0 / 5%); */
 }
 
 .link {
   color: var(--primary);
   text-decoration: none;
-  font-size: 18px;
   font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
 }
 
-.active {
-  background-color: var(--primary);
-  color: #fff;
+.description {
+  font-size: 16px;
+  line-height: 19px;
 }
 
 .box {
@@ -44,14 +46,29 @@
 }
 
 .box li {
-  margin-right: 5px;
-  padding: 3px 7px;
+  margin-right: 10px;
+  padding: 2px 7px;
   border-radius: 3px;
   cursor: pointer;
 }
 
+.box li a {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--secondary);
+}
+
+.active {
+  background-color: var(--primary);
+}
+
+.active a {
+  color: #fff !important;
+}
+
 .closeIcon {
-  width: 50px;
+  width: 76px;
+  height: 62px;
   margin-bottom: 20px;
 }
 

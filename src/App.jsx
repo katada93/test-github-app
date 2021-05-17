@@ -5,7 +5,7 @@ import StartPage from './components/StartPage/StartPage';
 import Loader from './components/Loader/Loader';
 import Profile from './components/Profile/Profile';
 import Repos from './components/Repos/Repos';
-import ErrorPage from './components/ErrorPage/ErrorPage';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 function App() {
   const { user, loading, error } = useSelector(({ user }) => user);
@@ -32,7 +32,7 @@ function App() {
           )
         )}
         {!(user || loading || error) && <StartPage />}
-        {error && <ErrorPage />}
+        {error && <NotFoundPage />}
       </div>
     </div>
   );

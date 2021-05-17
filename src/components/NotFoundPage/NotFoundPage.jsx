@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './ErrorPage.module.css';
+import styles from './NotFoundPage.module.css';
 import userIcon from '../../images/user-big.svg';
 
-const ErrorPage = () => {
+const NotFoundPage = () => {
   return (
     <div className={styles.error}>
       <img className={styles.errorImg} src={userIcon} alt='Search Icon' />
@@ -11,4 +11,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default NotFoundPage;

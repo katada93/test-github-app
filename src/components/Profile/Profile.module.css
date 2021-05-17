@@ -1,10 +1,10 @@
 .profile {
   width: 30%;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .profileImg {
-  max-width: 250px;
+  max-width: 280px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -21,10 +21,11 @@
   color: var(--primary);
   margin-bottom: 20px;
   font-size: 18px;
+  line-height: 22px;
 }
 
 .followersWrapper {
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
 }
 
@@ -39,12 +40,9 @@
   align-items: center;
 }
 
-.followersIcon {
-  width: 20px;
-  margin-right: 10px;
-}
-
+.followersIcon,
 .followingIcon {
-  width: 15px;
-  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
