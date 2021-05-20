@@ -1,39 +1,53 @@
-import { useSelector } from 'react-redux';
-import styles from './App.module.css';
-import Header from './components/Header/Header';
-import StartPage from './components/StartPage/StartPage';
-import Loader from './components/Loader/Loader';
-import Profile from './components/Profile/Profile';
-import Repos from './components/Repos/Repos';
-import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import { useSelector } from "react-redux";
+import styles from "./App.module.css";
+
+import {
+  Header,
+  StartPage,
+  Loader,
+  Profile,
+  Repos,
+  NotFoundPage
+} from "./components";
+
+import { useMemo } from "react";
 
 function App() {
   const { user, loading, error } = useSelector(({ user }) => user);
 
+  const view = useMemo(() => {
+    if (loading) {
+      return <Loader />;
+    }
+
+    if (user) {
+      return (
+        <div className={styles.wrapper}>
+          <Profile
+            name={user.name}
+            avatar={user.avatar_url}
+            login={user.login}
+            followers={user.followers}
+            following={user.following}
+            url={user.html_url}
+          />
+
+          <Repos />
+        </div>
+      );
+    }
+
+    if (error) {
+      return <NotFoundPage />;
+    }
+
+    return <StartPage />;
+  }, [loading, user, error]);
+
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
-      <div className='container'>
-        {loading ? (
-          <Loader />
-        ) : (
-          user && (
-            <div className={styles.wrapper}>
-              <Profile
-                name={user.name}
-                avatar={user.avatar_url}
-                login={user.login}
-                followers={user.followers}
-                following={user.following}
-                url={user.html_url}
-              />
-              <Repos />
-            </div>
-          )
-        )}
-        {!(user || loading || error) && <StartPage />}
-        {error && <NotFoundPage />}
-      </div>
+      <div className="container">{view}</div>
     </div>
   );
 }

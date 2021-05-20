@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeActivePage, setRepos } from '../../redux/user';
-import ReactPaginate from 'react-paginate';
-import styles from './Repos.module.css';
-import closeIcon from '../../images/close.svg';
+import axios from "axios";
+import React, { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeActivePage, setRepos } from "../../redux/user";
+import ReactPaginate from "react-paginate";
+import styles from "./Repos.module.css";
+import closeIcon from "../../images/close.svg";
 
 const Repos = () => {
   const dispatch = useDispatch();
@@ -23,11 +23,35 @@ const Repos = () => {
       .catch((e) => console.log(e));
   }, [dispatch, user, activePage]);
 
+  const reposView = useMemo(() => {
+    if (!repos) {
+      return null;
+    }
+
+    return (
+      <ul className={styles.list}>
+        {repos.map((repo) => (
+          <li key={repo.id} className={styles.listItem}>
+            <a
+              className={styles.link}
+              href={repo.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {repo.name}
+            </a>
+            <p className={styles.description}>{repo.description}</p>
+          </li>
+        ))}
+      </ul>
+    );
+  }, [repos]);
+
   if (reposCount === 0) {
     return (
       <div className={styles.repos}>
         <div className={styles.inner}>
-          <img className={styles.closeIcon} src={closeIcon} alt='' />
+          <img className={styles.closeIcon} src={closeIcon} alt="" />
           <p>Repository list is empty</p>
         </div>
       </div>
@@ -37,26 +61,15 @@ const Repos = () => {
   return (
     <div className={styles.repos}>
       <h3 className={styles.title}>Repositories ({user.public_repos})</h3>
-      {repos && (
-        <ul className={styles.list}>
-          {repos.map((repo) => (
-            <li key={repo.id} className={styles.listItem}>
-              <a
-                className={styles.link}
-                href={repo.html_url}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {repo.name}
-              </a>
-              <p className={styles.description}>{repo.description}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      {reposView}
+      {/* <span>1-4 of repos</span>
+      <span>5-8 of repos</span> */}
+      <span>
+        {activePage * 4 - 3}-{activePage * 4} of repos
+      </span>
       <ReactPaginate
-        previousLabel='<'
-        nextLabel='>'
+        previousLabel="<"
+        nextLabel=">"
         onPageChange={(e) => dispatch(changeActivePage(e.selected + 1))}
         containerClassName={styles.box}
         activeClassName={styles.active}
