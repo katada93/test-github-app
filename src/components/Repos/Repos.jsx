@@ -62,19 +62,21 @@ const Repos = () => {
     <div className={styles.repos}>
       <h3 className={styles.title}>Repositories ({user.public_repos})</h3>
       {reposView}
-      {/* <span>1-4 of repos</span>
-      <span>5-8 of repos</span> */}
-      <span>
-        {activePage * 4 - 3}-{activePage * 4} of repos
-      </span>
-      <ReactPaginate
-        previousLabel="<"
-        nextLabel=">"
-        onPageChange={(e) => dispatch(changeActivePage(e.selected + 1))}
-        containerClassName={styles.box}
-        activeClassName={styles.active}
-        pageCount={reposCount}
-      />
+      <div className={styles.pagination}>
+        <span>
+          {activePage * 4 - 3}-{activePage * 4} of repos
+        </span>
+        <ReactPaginate
+          previousLabel={"<"}
+          previousLinkClassName={styles.prevArrow}
+          nextLinkClassName={styles.nextArrow}
+          nextLabel=">"
+          onPageChange={(e) => dispatch(changeActivePage(e.selected + 1))}
+          containerClassName={styles.box}
+          activeClassName={styles.active}
+          pageCount={reposCount}
+        />
+      </div>
     </div>
   );
 };

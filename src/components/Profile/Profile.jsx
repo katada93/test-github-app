@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import styles from "./Profile.module.css";
 import followersIcon from "../../images/users.svg";
 import followingIcon from "../../images/user.svg";
@@ -11,7 +11,9 @@ const formatNumber = (num) => {
   return num;
 };
 
-const Profile = ({ name, avatar, login, followers, following, url }) => {
+const Profile = (props) => {
+  const { name, avatar, login, followers, following, url } = props;
+
   const followersNormalize = useMemo(() => formatNumber(followers), [
     followers
   ]);

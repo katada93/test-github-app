@@ -1,14 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     user: null,
     repos: [],
     reposCount: 0,
     activePage: 1,
     error: false,
-    loading: false,
+    loading: false
   },
   reducers: {
     setUserData: (state, action) => {
@@ -28,8 +29,8 @@ export const userSlice = createSlice({
     },
     changeActivePage: (state, action) => {
       state.activePage = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -37,7 +38,21 @@ export const {
   setLoading,
   setError,
   setRepos,
-  changeActivePage,
+  changeActivePage
 } = userSlice.actions;
+
+export const fetchUserData = (value) => async (dispatch) => {
+  dispatch(setLoading(true));
+  dispatch(setError(false));
+  try {
+    const { data } = await axios.get(`https://api.github.com/users/${value}`);
+    dispatch(setLoading(false));
+    dispatch(setUserData(data));
+  } catch (error) {
+    console.log(error.message);
+    dispatch(setLoading(false));
+    dispatch(setError(true));
+  }
+};
 
 export default userSlice.reducer;
