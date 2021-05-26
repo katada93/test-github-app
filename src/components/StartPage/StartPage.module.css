@@ -1,12 +1,5 @@
 .start {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 71px);
-}
-
-.content {
-  max-width: 250px;
+  max-width: 210px;
 }
 
 .startImg {

@@ -1,21 +1,16 @@
-.search {
-  position: relative;
-}
-
-.searchIcon {
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20px;
-}
-
 .input {
-  width: 500px;
-  padding: 8px 44px;
+  width: 100%;
+  padding: 10px 44px;
   border-radius: 5px;
   border: none;
   font-size: 14px;
   line-height: 17px;
+}
+
+@media (max-width: 768px) {
+  .input {
+    padding: 10px 24px 10px 44px;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

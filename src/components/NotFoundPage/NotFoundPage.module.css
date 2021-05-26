@@ -1,21 +1,14 @@
-.error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 71px);
-}
-
-.content {
+.notFound {
   max-width: 160px;
 }
 
-.errorImg {
+.notFoundImg {
   width: 80px;
   display: block;
   margin: 0 auto 40px;
 }
 
-.error p {
+.notFound p {
   margin: 0;
   color: var(--secondary);
   text-align: center;

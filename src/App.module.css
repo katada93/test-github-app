@@ -1,4 +1,18 @@
 .wrapper {
   display: flex;
+  justify-content: space-between;
   padding-top: 30px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 }

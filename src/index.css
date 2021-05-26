@@ -25,6 +25,13 @@ img {
 }
 .container {
   max-width: 1200px;
+  width: 95%;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0;
+  }
 }
