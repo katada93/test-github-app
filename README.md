@@ -1,6 +1,6 @@
 # GitHub User
 
-«GitHub User» - is a test ReactJS project for some company.
+«GitHub User» - is a test ReactJS project.
 
 ### Install
 

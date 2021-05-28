@@ -1,6 +1,5 @@
 import logo from "../../images/github.svg";
-import searchIcon from "../../images/search.svg";
-import InputForm from "./InputForm/InputFrom";
+import SearchForm from "./SearchForm/SearchForm";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -13,14 +12,7 @@ const Header = () => {
               <img src={logo} alt="Logo" />
             </a>
           </div>
-          <div className={styles.search}>
-            <img
-              className={styles.searchIcon}
-              src={searchIcon}
-              alt="Search icon"
-            />
-            <InputForm />
-          </div>
+          <SearchForm />
         </div>
       </div>
     </header>
