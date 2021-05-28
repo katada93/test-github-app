@@ -42,6 +42,13 @@
   margin-top: 30px;
 }
 
+.pagination span {
+  font-size: 14px;
+  line-height: 21px;
+
+  color: var(--secondary);
+}
+
 .closeIcon {
   width: 76px;
   height: 62px;
@@ -71,10 +78,4 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-  .pagination span {
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 575px) {
 }

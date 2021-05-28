@@ -1,27 +1,21 @@
-import React, { useEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import ReactPaginate from "react-paginate";
-import closeIcon from "../../images/close.svg";
-import { changeCurrentPage, fetchRepos } from "../../redux/repos";
-import Loader from "../Loader/Loader";
-import styles from "./Repos.module.css";
-import Pagination from "./Pagination/Pagination";
+import React, { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import closeIcon from '../../images/close.svg';
+import { changeCurrentPage, fetchRepos } from '../../redux/repos';
+import Loader from '../Loader/Loader';
+import styles from './Repos.module.css';
+import Pagination from './Pagination/Pagination';
 
 const Repos = () => {
   const dispatch = useDispatch();
   const { user, pageCount } = useSelector(({ user }) => user);
   const { repos, currentPage, loading } = useSelector(({ repos }) => repos);
 
-  console.log(repos, currentPage);
   useEffect(() => {
     dispatch(fetchRepos(user.login, currentPage));
   }, [dispatch, user, currentPage]);
 
   const view = useMemo(() => {
-    if (!repos) {
-      return null;
-    }
-
     if (loading) {
       return <Loader />;
     }
@@ -33,8 +27,8 @@ const Repos = () => {
             <a
               className={styles.link}
               href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
             >
               {repo.name}
             </a>
@@ -49,7 +43,7 @@ const Repos = () => {
     return (
       <div className={styles.repos}>
         <div className={styles.inner}>
-          <img className={styles.closeIcon} src={closeIcon} alt="" />
+          <img className={styles.closeIcon} src={closeIcon} alt='' />
           <p>Repository list is empty</p>
         </div>
       </div>

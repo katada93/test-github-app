@@ -1,16 +1,8 @@
-import { useSelector } from "react-redux";
-import styles from "./App.module.css";
-
-import {
-  Header,
-  StartPage,
-  Loader,
-  Profile,
-  Repos,
-  NotFoundPage
-} from "./components";
-
-import { useMemo } from "react";
+import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
+import { Header, Loader, Profile, Repos } from './components';
+import { StartPage, NotFoundPage } from './pages';
+import styles from './App.module.css';
 
 function App() {
   const { user, loading, error } = useSelector(({ user }) => user);
@@ -53,9 +45,9 @@ function App() {
   }, [loading, user, error]);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
-      <div className="container">{view}</div>
+      <div className='container'>{view}</div>
     </div>
   );
 }

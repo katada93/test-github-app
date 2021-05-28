@@ -2,14 +2,29 @@
 
 «GitHub User» - is a test ReactJS project.
 
-### Install
+[Deploy](https://test-github-user.netlify.app)
+
+## Stack
+
+- React
+- Redux Toolkit
+- React Redux
+- Axios
+- React Paginate
+
+## Install
 
 ```bash
-$ npm install
+$ git clone https://github.com/katada93/test-github-app.git
+$ npm install / yarn install
 ```
 
-### Run
+## Run
 
 ```bash
-$ npm start
+$ npm start / yarn start
 ```
+
+## Screenshot
+
+![1](./Screen.jpg)

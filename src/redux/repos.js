@@ -1,24 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const reposSlice = createSlice({
-  name: "repos",
+  name: 'repos',
   initialState: {
     repos: [],
     currentPage: 1,
-    loading: false
+    loading: false,
   },
   reducers: {
     setRepos: (state, action) => {
       state.repos = action.payload;
+      state.loading = false;
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
     changeCurrentPage: (state, action) => {
       state.currentPage = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { setRepos, setLoading, changeCurrentPage } = reposSlice.actions;
@@ -29,7 +30,6 @@ export const fetchRepos = (user, page) => async (dispatch) => {
     const { data } = await axios.get(
       `https://api.github.com/users/${user}/repos?per_page=4&page=${page}`
     );
-    dispatch(setLoading(false));
     dispatch(setRepos(data));
   } catch (error) {
     console.log(error.message);
