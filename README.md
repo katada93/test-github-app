@@ -1,8 +1,8 @@
 # GitHub User
 
-«GitHub User» - is a test ReactJS project.
+«GitHub User» - is a project for viewing user profile and its repositories.
 
-[Deploy](https://test-github-user.netlify.app)
+[Demo](https://test-github-user.netlify.app)
 
 ## Stack
 

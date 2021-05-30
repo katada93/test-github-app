@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { useMemo } from 'react';
 import { Header, Loader, Profile, Repos } from './components';
 import { StartPage, NotFoundPage } from './pages';
 import styles from './App.module.css';
@@ -7,7 +6,7 @@ import styles from './App.module.css';
 function App() {
   const { user, loading, error } = useSelector(({ user }) => user);
 
-  const view = useMemo(() => {
+  const View = () => {
     if (loading) {
       return <Loader />;
     }
@@ -42,12 +41,14 @@ function App() {
         <StartPage />
       </div>
     );
-  }, [loading, user, error]);
+  };
 
   return (
     <div className='App'>
       <Header />
-      <div className='container'>{view}</div>
+      <div className='container'>
+        <View />
+      </div>
     </div>
   );
 }

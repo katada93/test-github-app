@@ -8,8 +8,9 @@ import Pagination from './Pagination/Pagination';
 
 const Repos = () => {
   const dispatch = useDispatch();
-  const { user, pageCount } = useSelector(({ user }) => user);
-  const { repos, currentPage, loading } = useSelector(({ repos }) => repos);
+  const { user, pageCount, repos, currentPage, loading } = useSelector(
+    (state) => ({ ...state.user, ...state.repos })
+  );
 
   useEffect(() => {
     dispatch(fetchRepos(user.login, currentPage));
