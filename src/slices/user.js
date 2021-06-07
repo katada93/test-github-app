@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { changeCurrentPage } from './repos';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -32,6 +33,7 @@ export const fetchUserData = (value) => async (dispatch) => {
   dispatch(setError(false));
   try {
     const { data } = await axios.get(`https://api.github.com/users/${value}`);
+    dispatch(changeCurrentPage(1));
     dispatch(setUserData(data));
   } catch (error) {
     console.log(error.message);

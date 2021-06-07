@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import closeIcon from '../../images/close.svg';
-import { changeCurrentPage, fetchRepos } from '../../redux/repos';
+import { changeCurrentPage, fetchRepos } from '../../slices/repos';
 import Loader from '../Loader/Loader';
 import styles from './Repos.module.css';
-import Pagination from './Pagination/Pagination';
+import Pagination from '../Pagination/Pagination';
 
 const Repos = () => {
   const dispatch = useDispatch();

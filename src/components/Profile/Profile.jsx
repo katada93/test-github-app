@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 import styles from './Profile.module.css';
 import followersIcon from '../../images/users.svg';
 import followingIcon from '../../images/user.svg';
-import { formatNumber } from '../../utils';
+import { formatNumber } from '../../utils.js';
 
 const Profile = (props) => {
   const { name, avatar, login, followers, following, url } = props;
 
-  const followersNormalize = useMemo(
+  const followersNormalized = useMemo(
     () => formatNumber(followers),
     [followers]
   );
@@ -31,7 +31,7 @@ const Profile = (props) => {
             src={followersIcon}
             alt='Icon'
           />
-          <span>{followersNormalize} followers</span>
+          <span>{followersNormalized} followers</span>
         </div>
         <div className={styles.following}>
           <img className={styles.followingIcon} src={followingIcon} alt='' />

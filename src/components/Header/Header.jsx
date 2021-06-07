@@ -1,8 +1,8 @@
 import logo from '../../images/github.svg';
-import SearchForm from './SearchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
 import styles from './Header.module.css';
 import { useDispatch } from 'react-redux';
-import { fetchUserData } from '../../redux/user';
+import { fetchUserData } from '../../slices/user';
 
 const Header = () => {
   const dispatch = useDispatch();
