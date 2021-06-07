@@ -9,10 +9,12 @@ export const userSlice = createSlice({
     pageCount: 0,
     error: false,
     loading: false,
+    reposCount: 0,
   },
   reducers: {
     setUserData: (state, action) => {
       state.user = action.payload;
+      state.reposCount = action.payload.public_repos;
       state.pageCount = Math.ceil(action.payload.public_repos / 4);
       state.loading = false;
     },

@@ -8,9 +8,8 @@ import Pagination from '../Pagination/Pagination';
 
 const Repos = () => {
   const dispatch = useDispatch();
-  const { user, pageCount, repos, currentPage, loading } = useSelector(
-    (state) => ({ ...state.user, ...state.repos })
-  );
+  const { user, pageCount, repos, currentPage, loading, reposCount } =
+    useSelector((state) => ({ ...state.user, ...state.repos }));
 
   useEffect(() => {
     dispatch(fetchRepos(user.login, currentPage));
@@ -57,7 +56,7 @@ const Repos = () => {
       {view}
       <div className={styles.pagination}>
         <span>
-          {currentPage * 4 - 3}-{currentPage * 4} of repos
+          {currentPage * 4 - 3}-{currentPage * 4} of {reposCount} items
         </span>
         <Pagination
           count={pageCount}

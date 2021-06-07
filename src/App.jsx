@@ -2,11 +2,12 @@ import { useSelector } from 'react-redux';
 import { Header, Loader, Profile, Repos } from './components';
 import { StartPage, NotFoundPage } from './pages';
 import styles from './App.module.css';
+import { useMemo } from 'react';
 
 function App() {
   const { user, loading, error } = useSelector(({ user }) => user);
 
-  const View = () => {
+  const view = useMemo(() => {
     if (loading) {
       return <Loader />;
     }
@@ -41,14 +42,12 @@ function App() {
         <StartPage />
       </div>
     );
-  };
+  }, [user, loading, error]);
 
   return (
     <div className='App'>
       <Header />
-      <div className='container'>
-        <View />
-      </div>
+      <div className='container'>{view}</div>
     </div>
   );
 }
